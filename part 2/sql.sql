@@ -34,3 +34,9 @@ WHERE crn = "csc275" and Student_id = Any(SELECT Student_id FROM MajorsIn WHERE 
 SELECT COUNT(DISTINCT Student_id)
 FROM `Enrolled`
 WHERE Student_id = Any(SELECT Student_id FROM MajorsIn WHERE MajorsIn.Department_id = 2);
+
+-- Find the number of majors that each student has declared
+
+SELECT Student_id , COUNT(Department_id)
+FROM `MajorsIn`
+GROUP BY Student_id;
