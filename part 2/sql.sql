@@ -40,3 +40,10 @@ WHERE Student_id = Any(SELECT Student_id FROM MajorsIn WHERE MajorsIn.Department
 SELECT Student_id , COUNT(Department_id)
 FROM `MajorsIn`
 GROUP BY Student_id;
+
+-- For each department with more than one majoring student, print the
+-- department’s name and the number of majoring students
+
+SELECT Department_id , COUNT(Student_id)
+FROM `MajorsIn`
+GROUP BY Department_id;
