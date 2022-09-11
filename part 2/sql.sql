@@ -28,3 +28,9 @@ WHERE Student.id NOT IN (SELECT Student_id FROM Enrolled);
 SELECT COUNT(Student_id) 
 FROM `Enrolled`
 WHERE crn = "csc275" and Student_id = Any(SELECT Student_id FROM MajorsIn WHERE MajorsIn.Department_id = 2);
+
+-- Find the number of CS majors enrolled in any course
+
+SELECT COUNT(DISTINCT Student_id)
+FROM `Enrolled`
+WHERE Student_id = Any(SELECT Student_id FROM MajorsIn WHERE MajorsIn.Department_id = 2);
