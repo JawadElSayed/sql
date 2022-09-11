@@ -44,6 +44,7 @@ GROUP BY Student_id;
 -- For each department with more than one majoring student, print the
 -- department’s name and the number of majoring students
 
-SELECT Department_id , COUNT(Student_id)
-FROM `MajorsIn`
-GROUP BY Department_id;
+SELECT Department.name , COUNT(MajorsIn.Student_id)
+FROM `Department` , MajorsIn
+WHERE Department.id = MajorsIn.Department_id
+GROUP BY name;
